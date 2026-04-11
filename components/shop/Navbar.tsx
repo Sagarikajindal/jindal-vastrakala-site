@@ -18,68 +18,69 @@ export default function Navbar() {
   const navLinks = [
     { href: "/shop/sarees", label: "Sarees" },
     { href: "/shop/lehengas", label: "Lehengas" },
-   
     { href: "/link-in-bio", label: "Our Story" },
   ];
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-ink-900/95 backdrop-blur-sm border-b border-gold-800/20" : "bg-transparent"
+        scrolled
+          ? "bg-ink-900/95 backdrop-blur-sm border-b border-[#8f6a2f]/20"
+          : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="font-accent text-gold-400 tracking-[0.2em] text-sm uppercase">
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <Link
+          href="/"
+          className="font-display text-[#D4B06A] text-xl sm:text-2xl md:text-3xl tracking-[0.04em] leading-none"
+        >
           Jindal Vastrakala
         </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-10">
           {navLinks.map((l) => (
             <Link
               key={l.href}
               href={l.href}
-              className="font-body text-gold-300 hover:text-gold-100 transition-colors text-base tracking-wide"
+              className="font-body text-[#E2C38A] hover:text-[#F3E2B8] transition-colors text-lg tracking-[0.01em]"
             >
               {l.label}
             </Link>
           ))}
         </div>
 
-        {/* Actions */}
         <div className="flex items-center gap-4">
           <button
             onClick={toggleCart}
-            className="relative p-2 text-gold-300 hover:text-gold-100 transition-colors"
+            className="relative p-2 text-[#E2C38A] hover:text-[#F3E2B8] transition-colors"
             aria-label="Open cart"
           >
-            <ShoppingBag size={20} />
+            <ShoppingBag size={22} />
             {itemCount() > 0 && (
-              <span className="absolute -top-1 -right-1 bg-crimson-600 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center font-accent">
+              <span className="absolute -top-1 -right-1 bg-crimson-600 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center font-body">
                 {itemCount()}
               </span>
             )}
           </button>
+
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden p-2 text-gold-300"
+            className="md:hidden p-2 text-[#E2C38A] hover:text-[#F3E2B8] transition-colors"
             aria-label="Toggle menu"
           >
-            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-ink-800 border-t border-gold-800/20 px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden bg-ink-800 border-t border-[#8f6a2f]/20 px-6 py-5 flex flex-col gap-4">
           {navLinks.map((l) => (
             <Link
               key={l.href}
               href={l.href}
               onClick={() => setMenuOpen(false)}
-              className="font-body text-gold-300 hover:text-gold-100 py-2 border-b border-gold-800/20 text-lg"
+              className="font-body text-[#E2C38A] hover:text-[#F3E2B8] py-2 border-b border-[#8f6a2f]/20 text-xl"
             >
               {l.label}
             </Link>
