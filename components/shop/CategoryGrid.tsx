@@ -12,13 +12,7 @@ const categories = [
     href: "/shop/lehengas",
     image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=800&q=80",
     description: "Bridal · Reception · Sangeet",
-  },
-  {
-    name: "Suits",
-    href: "/shop/suits",
-    image: "https://images.unsplash.com/photo-1594938298603-3b7496bff9cc?w=800&q=80",
-    description: "Anarkali · Churidar · Palazzo",
-  },
+  }
 ];
 
 export default function CategoryGrid() {
