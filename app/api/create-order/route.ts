@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
   // ── Stripe (international) ──────────────────────────────────────────────────
   if (gateway === "stripe") {
     const stripe = (await import("stripe")).default;
-    const stripeClient = new stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: "2024-04-10" });
+    const stripeClient = new stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: "2023-10-16" });
 
     const lineItems = items.map((item: any) => ({
       price_data: {
