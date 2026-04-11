@@ -10,6 +10,17 @@ export default function Hero() {
     setLoaded(true);
   }, []);
 
+  const whatsappNumber =
+    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919999999999";
+
+  const enquiryMessage = encodeURIComponent(
+    "Hello, I'd like to enquire about your collection"
+  );
+
+  const videoConsultationMessage = encodeURIComponent(
+    "Hello Jindal Vastrakala, I want to book a video consultation.\n\nMy name:\nOccasion:\nBudget:\nPreferred time:"
+  );
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden texture-overlay">
       <div
@@ -46,7 +57,7 @@ export default function Hero() {
           className="font-body text-[#ead7b0] text-base sm:text-xl md:text-2xl max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed"
           style={{ fontStyle: "italic" }}
         >
-          Hand-picked sarees, lehengas & suits from the timeless artistry of India.
+          Hand-picked sarees and lehengas from the timeless artistry of India.
           Shipped from Chandni Chowk to your doorstep, worldwide.
         </p>
 
@@ -59,19 +70,26 @@ export default function Hero() {
           </Link>
 
           <a
-            href={`https://wa.me/${
-              process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919999999999"
-            }?text=Hello, I'd like to enquire about your collection`}
+            href={`https://wa.me/${whatsappNumber}?text=${enquiryMessage}`}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-outline-gold px-10 py-4 text-sm uppercase tracking-widest rounded-none"
           >
             WhatsApp Us
           </a>
+
+          <a
+            href={`https://wa.me/${whatsappNumber}?text=${videoConsultationMessage}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-outline-gold px-10 py-4 text-sm uppercase tracking-widest rounded-none"
+          >
+            Book Video Consultation
+          </a>
         </div>
 
         <p className="mt-8 text-[11px] sm:text-xs tracking-[0.28em] uppercase text-[#d8b56a] font-accent">
-          ✦ Free shipping to UK · UAE · Europe · USA ✦
+          ✦ We ship Worldwide ✦
         </p>
       </div>
     </section>
