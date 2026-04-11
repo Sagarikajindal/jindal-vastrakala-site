@@ -46,7 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <footer className="border-t border-gold-800/30 mt-24 py-16 px-6 text-center">
           <p className="font-accent text-gold-400 tracking-widest text-sm mb-2">JINDAL VASTRAKALA</p>
-          <p className="text-gold-600 text-sm">Shop No. XX, Chandni Chowk, Delhi — 110006</p>
+          <p className="text-gold-600 text-sm"> 4235, Ram Ram Ji Complex, Nai Sarak, Jogiwara, Delhi – 110006</p>
           <p className="text-gold-700 text-xs mt-4">
             © {new Date().getFullYear()} Jindal Vastrakala. All rights reserved.
           </p>
