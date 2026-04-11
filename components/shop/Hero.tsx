@@ -11,7 +11,7 @@ export default function Hero() {
   }, []);
 
   const whatsappNumber =
-    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919999999999";
+    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "918368319092";
 
   const enquiryMessage = encodeURIComponent(
     "Hello, I'd like to enquire about your collection"
@@ -27,7 +27,7 @@ export default function Hero() {
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=1600&q=80')",
+            "url('/Landing Page image.png')",
         }}
       />
 
