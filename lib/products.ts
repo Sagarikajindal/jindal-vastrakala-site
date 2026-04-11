@@ -15,7 +15,7 @@ export const products: Product[] = [
       "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=800",
     ],
     description:
-      "Handwoven in the ancient looms of Varanasi, this Katan silk Banarasi saree features intricate zari work with traditional motifs. A heirloom piece passed down through generations.",
+      "Handwoven in the ancient looms of Varanasi, this Katan silk Banarasi saree features intricate zari work with traditional motifs. An heirloom piece passed down through generations.",
     stock: 2,
     featured: true,
     colors: ["Deep Crimson", "Midnight Navy", "Forest Green"],
@@ -84,26 +84,6 @@ export const products: Product[] = [
     createdAt: "2025-10-01",
   },
   {
-    id: "p005",
-    name: "Georgette Anarkali Suit",
-    slug: "georgette-anarkali-suit",
-    category: "suit",
-    fabric: "Georgette",
-    occasion: ["festival", "party", "eid"],
-    priceINR: 12500,
-    priceEUR: 142,
-    images: [
-      "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=800",
-    ],
-    description:
-      "Floor-length Anarkali suit in pure georgette with intricate chikankari embroidery. Comes with matching churidar and dupatta.",
-    stock: 3,
-    featured: false,
-    colors: ["Ivory White", "Powder Pink", "Mint Green"],
-    tags: ["anarkali", "georgette", "chikankari", "suit", "party"],
-    createdAt: "2025-10-15",
-  },
-  {
     id: "p006",
     name: "Patola Silk Saree",
     slug: "patola-silk-saree",
@@ -135,7 +115,15 @@ export const getFeaturedProducts = () =>
   products.filter((p) => p.featured);
 
 export const formatINR = (amount: number) =>
-  new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 }).format(amount);
+  new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "INR",
+    maximumFractionDigits: 0,
+  }).format(amount);
 
 export const formatEUR = (amount: number) =>
-  new Intl.NumberFormat("en-EU", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(amount);
+  new Intl.NumberFormat("de-DE", {
+    style: "currency",
+    currency: "EUR",
+    maximumFractionDigits: 0,
+  }).format(amount);
