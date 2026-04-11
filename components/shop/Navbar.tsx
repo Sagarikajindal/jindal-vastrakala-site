@@ -18,7 +18,7 @@ export default function Navbar() {
   const navLinks = [
     { href: "/shop/sarees", label: "Sarees" },
     { href: "/shop/lehengas", label: "Lehengas" },
-    { href: "/shop/suits", label: "Suits" },
+   
     { href: "/link-in-bio", label: "Our Story" },
   ];
 
