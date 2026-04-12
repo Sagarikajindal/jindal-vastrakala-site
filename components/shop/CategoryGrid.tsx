@@ -11,7 +11,7 @@ const categories = [
   {
     name: "Lehengas",
     href: "/shop/lehengas",
-    image: "/LP img lehenga.png",
+    image: "/LP img lehenga.jpg",
     imagePosition: "center top",
     description: "Bridal · Non Bridal",
   },
