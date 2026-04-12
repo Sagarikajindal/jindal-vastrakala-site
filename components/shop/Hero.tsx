@@ -1,92 +1,116 @@
 "use client";
-import Link from "next/link";
-import { ShoppingBag, Menu, X } from "lucide-react";
-import { useCartStore } from "@/lib/store";
-import { useState, useEffect } from "react";
 
-export default function Navbar() {
-  const { itemCount, toggleCart } = useCartStore();
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
+export default function Hero() {
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handler);
-    return () => window.removeEventListener("scroll", handler);
+    setLoaded(true);
   }, []);
 
-  const navLinks = [
-    { href: "/shop/sarees", label: "Sarees" },
-    { href: "/shop/lehengas", label: "Lehengas" },
-    { href: "/link-in-bio", label: "Our Story" },
-  ];
+  const whatsappNumber =
+    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "918368319092";
+
+  const videoConsultationMessage = encodeURIComponent(
+    "Hello Jindal Vastrakala, I want to book a video consultation.\n\nMy name:\nOccasion:\nBudget:\nPreferred time:"
+  );
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#120b08]/90 backdrop-blur-md border-b border-[#6f5528]/20"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="w-full px-8 md:px-14 xl:px-20 h-20 flex items-center">
-        <Link
-          href="/"
-          className="font-display text-[#D8C08A] text-xl sm:text-2xl md:text-[2rem] tracking-[0.03em] leading-none shrink-0"
+    <section className="relative min-h-screen overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/Landing Page image.png')",
+          backgroundPosition: "center top",
+        }}
+      />
+
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(18,11,8,0.92)_0%,rgba(18,11,8,0.78)_34%,rgba(18,11,8,0.55)_58%,rgba(18,11,8,0.42)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(18,11,8,0.40)_0%,rgba(18,11,8,0.18)_30%,rgba(18,11,8,0.72)_100%)]" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C6A96B] to-transparent" />
+
+      <div className="relative z-10 min-h-screen flex items-center">
+        <div
+          className={`w-full px-8 md:px-14 xl:px-20 pt-28 md:pt-32 transition-all duration-1000 ${
+            loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
         >
-          Jindal Vastrakala
-        </Link>
+          <div className="max-w-3xl text-center md:text-left">
+            <p className="font-accent text-[#C6A96B] tracking-[0.28em] text-[11px] sm:text-xs mb-5 sm:mb-6">
+              CHANDNI CHOWK, DELHI · EST. 2025
+            </p>
 
-        <div className="hidden md:flex items-center gap-10 ml-auto mr-10">
-          {navLinks.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="font-body text-[#E7D3A2] hover:text-[#F3E7C7] transition-colors text-lg tracking-[0.01em]"
+            <h1
+              className="font-display leading-[0.98] text-[#F8F1E7] mb-6"
+              style={{ fontSize: "clamp(3rem, 7vw, 6.1rem)", fontWeight: 500 }}
             >
-              {l.label}
-            </Link>
-          ))}
-        </div>
+              Where Heritage{" "}
+              <span className="text-[#D8C08A]">Meets Grace</span>
+            </h1>
 
-        <div className="flex items-center gap-4 ml-auto md:ml-0 shrink-0">
-          <button
-            onClick={toggleCart}
-            className="relative p-2 text-[#E7D3A2] hover:text-[#F3E7C7] transition-colors"
-            aria-label="Open cart"
-          >
-            <ShoppingBag size={22} />
-            {itemCount() > 0 && (
-              <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">
-                {itemCount()}
-              </span>
-            )}
-          </button>
+            <p
+              className="font-body text-[#EADCC1] text-base sm:text-xl md:text-2xl max-w-2xl md:max-w-xl mb-8 sm:mb-10 leading-relaxed"
+              style={{ fontStyle: "italic" }}
+            >
+              Hand-picked sarees and lehengas from the timeless artistry of India.
+              Shipped from Chandni Chowk to your doorstep, worldwide.
+            </p>
 
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden p-2 text-[#E7D3A2] hover:text-[#F3E7C7] transition-colors"
-            aria-label="Toggle menu"
-          >
-            {menuOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <Link
+                href="/shop/sarees"
+                className="inline-flex items-center justify-center px-10 py-4 text-sm tracking-[0.16em] rounded-none bg-[#C6A96B] text-[#140d09] hover:bg-[#D8C08A] transition-colors"
+              >
+                Explore Collection
+              </Link>
+
+              <a
+                href={`https://wa.me/${whatsappNumber}?text=${videoConsultationMessage}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-10 py-4 text-sm tracking-[0.16em] rounded-none border border-[#C6A96B] text-[#E7D3A2] hover:bg-[#C6A96B]/10 hover:text-[#F3E7C7] transition-colors"
+              >
+                Book Video Consultation
+              </a>
+            </div>
+
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center md:justify-start">
+              <div className="min-w-[190px] border border-[#6f5528]/35 bg-black/15 backdrop-blur-[2px] px-5 py-4">
+                <p className="text-[#F3E7C7] text-xl sm:text-2xl font-semibold leading-none">
+                  150+
+                </p>
+                <p className="mt-2 text-[#D8C08A] text-xs sm:text-sm tracking-[0.08em]">
+                  5-Star Google Reviews
+                </p>
+              </div>
+
+              <div className="min-w-[190px] border border-[#6f5528]/35 bg-black/15 backdrop-blur-[2px] px-5 py-4">
+                <p className="text-[#F3E7C7] text-xl sm:text-2xl font-semibold leading-none">
+                  7.2K
+                </p>
+                <p className="mt-2 text-[#D8C08A] text-xs sm:text-sm tracking-[0.08em]">
+                  YouTube Subscribers
+                </p>
+              </div>
+
+              <div className="min-w-[190px] border border-[#6f5528]/35 bg-black/15 backdrop-blur-[2px] px-5 py-4">
+                <p className="text-[#F3E7C7] text-xl sm:text-2xl font-semibold leading-none">
+                  Worldwide
+                </p>
+                <p className="mt-2 text-[#D8C08A] text-xs sm:text-sm tracking-[0.08em]">
+                  Shipping Available
+                </p>
+              </div>
+            </div>
+
+            <p className="mt-8 text-[11px] sm:text-xs tracking-[0.22em] text-[#C6A96B] font-accent">
+              Luxury ethnic wear for bridal and festive moments
+            </p>
+          </div>
         </div>
       </div>
-
-      {menuOpen && (
-        <div className="md:hidden bg-[#120b08]/95 border-t border-[#6f5528]/20 px-6 py-5 flex flex-col gap-4">
-          {navLinks.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              onClick={() => setMenuOpen(false)}
-              className="font-body text-[#E7D3A2] hover:text-[#F3E7C7] py-2 border-b border-[#6f5528]/20 text-xl"
-            >
-              {l.label}
-            </Link>
-          ))}
-        </div>
-      )}
-    </nav>
+    </section>
   );
 }
