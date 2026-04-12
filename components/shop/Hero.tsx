@@ -120,8 +120,8 @@ export default function Hero() {
               </div>
             </div>
 
-            <p className="mt-8 text-[11px] sm:text-xs tracking-[0.22em] text-[#C6A96B] font-accent">
-              Luxury ethnic wear for bridal and festive moments
+            <p className="mt-8 text-sm sm:text-base md:text-lg tracking-[0.12em] text-[#D8C08A] font-accent">
+              Designer & Affordable Indian Ethnic wear for bridal and festive moments
             </p>
           </div>
         </div>
