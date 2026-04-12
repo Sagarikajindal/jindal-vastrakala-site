@@ -29,15 +29,15 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div className="w-full px-6 md:px-10 xl:px-14 h-20 flex items-center">
         <Link
           href="/"
-          className="font-display text-[#D4B06A] text-xl sm:text-2xl md:text-3xl tracking-[0.04em] leading-none"
+          className="font-display text-[#D4B06A] text-xl sm:text-2xl md:text-3xl tracking-[0.04em] leading-none shrink-0"
         >
           Jindal Vastrakala
         </Link>
 
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden md:flex items-center gap-10 ml-auto mr-8">
           {navLinks.map((l) => (
             <Link
               key={l.href}
@@ -49,7 +49,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 ml-auto md:ml-0 shrink-0">
           <button
             onClick={toggleCart}
             className="relative p-2 text-[#E2C38A] hover:text-[#F3E2B8] transition-colors"
