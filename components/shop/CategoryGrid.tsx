@@ -11,7 +11,7 @@ const categories = [
     name: "Lehengas",
     href: "/shop/lehengas",
     image:
-      "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=800&q=80",
+      "/LP img lehenga.png",
     description: "Bridal · Non Bridal",
   },
 ];
