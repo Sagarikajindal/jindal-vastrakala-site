@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Play } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function Hero() {
@@ -12,6 +13,8 @@ export default function Hero() {
 
   const whatsappNumber =
     process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "918368319092";
+
+  const youtubeLink = "https://www.youtube.com/@JindalVastrakala/shorts";
 
   const videoConsultationMessage = encodeURIComponent(
     "Hello Jindal Vastrakala, I want to book a video consultation.\n\nMy name:\nOccasion:\nBudget:\nPreferred time:"
@@ -46,8 +49,7 @@ export default function Hero() {
               className="font-display leading-[0.98] text-[#F8F1E7] mb-6"
               style={{ fontSize: "clamp(3rem, 7vw, 6.1rem)", fontWeight: 500 }}
             >
-              Where Heritage{" "}
-              <span className="text-[#D8C08A]">Meets Grace</span>
+              Where Heritage <span className="text-[#D8C08A]">Meets Grace</span>
             </h1>
 
             <p
@@ -86,14 +88,27 @@ export default function Hero() {
                 </p>
               </div>
 
-              <div className="min-w-[190px] border border-[#6f5528]/35 bg-black/15 backdrop-blur-[2px] px-5 py-4">
-                <p className="text-[#F3E7C7] text-xl sm:text-2xl font-semibold leading-none">
-                  7.2K
-                </p>
-                <p className="mt-2 text-[#D8C08A] text-xs sm:text-sm tracking-[0.08em]">
-                  YouTube Subscribers
-                </p>
-              </div>
+              <a
+                href={youtubeLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="min-w-[190px] border border-[#6f5528]/35 bg-black/15 backdrop-blur-[2px] px-5 py-4 transition-all hover:bg-[#C6A96B]/10 hover:border-[#C6A96B]/50"
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <div>
+                    <p className="text-[#F3E7C7] text-xl sm:text-2xl font-semibold leading-none">
+                      7.2K
+                    </p>
+                    <p className="mt-2 text-[#D8C08A] text-xs sm:text-sm tracking-[0.08em]">
+                      YouTube Subscribers
+                    </p>
+                  </div>
+
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#C6A96B]/40 text-[#E7D3A2]">
+                    <Play size={18} fill="currentColor" />
+                  </div>
+                </div>
+              </a>
 
               <div className="min-w-[190px] border border-[#6f5528]/35 bg-black/15 backdrop-blur-[2px] px-5 py-4">
                 <p className="text-[#F3E7C7] text-xl sm:text-2xl font-semibold leading-none">
