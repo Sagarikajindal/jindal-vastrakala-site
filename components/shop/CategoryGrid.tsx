@@ -5,7 +5,7 @@ const categories = [
     name: "Sarees",
     href: "/shop/sarees",
     image:
-      "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=800&q=80",
+      "/public/LP img saree.png",
     description: "Banarasi · Chanderi · Patola · Organza",
   },
   {
