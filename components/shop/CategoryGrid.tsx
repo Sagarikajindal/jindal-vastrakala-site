@@ -4,8 +4,7 @@ const categories = [
   {
     name: "Sarees",
     href: "/shop/sarees",
-    image:
-   "/LP img saree.png",
+    image: "/LP img saree.png",
     description: "Banarasi · Chanderi · Patola · Organza",
   },
   {
@@ -38,9 +37,9 @@ export default function CategoryGrid() {
               href={cat.href}
               className="group relative overflow-hidden block w-full max-w-[360px]"
             >
-              <div className="aspect-[3/4] relative overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
+              <div className="aspect-[3/4] relative overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.08)] bg-[#e9dcc8]">
                 <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                  className="absolute inset-0 bg-cover bg-top transition-transform duration-700 group-hover:scale-105"
                   style={{ backgroundImage: `url('${cat.image}')` }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1A120D] via-[#1A120D]/20 to-transparent" />
