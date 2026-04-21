@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ShoppingBag, Menu, X } from "lucide-react";
-import { useCart } from "@/lib/store";
+import { useCartStore } from "@/lib/store";
 import { useState, useEffect } from "react";
 
 const WA = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919999999999";
@@ -17,7 +17,8 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-  const { count, toggleCart } = useCart();
+  const count = useCartStore((state) => state.itemCount());
+  const toggleCart = useCartStore((state) => state.toggleCart);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
