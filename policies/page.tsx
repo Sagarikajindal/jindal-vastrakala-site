@@ -48,16 +48,10 @@ export default function PolicyLinks() {
             <Link
               key={href}
               href={href}
-              className="block rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
+              className="block rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:opacity-95"
               style={{
                 background: "rgba(255,255,255,0.02)",
                 border: "1px solid rgba(200,146,26,0.15)",
-              }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.borderColor = "rgba(200,146,26,0.4)";
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.borderColor = "rgba(200,146,26,0.15)";
               }}
             >
               <Icon className="w-6 h-6 text-gold-500 mb-4" />
