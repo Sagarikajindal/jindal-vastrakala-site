@@ -83,16 +83,10 @@ export const useCartStore = create<CartStore>()(
       toggleCart: () => set({ isOpen: !get().isOpen }),
 
       totalINR: () =>
-        get().items.reduce(
-          (sum, i) => sum + i.product.priceINR * i.quantity,
-          0
-        ),
+        get().items.reduce((sum, i) => sum + i.product.priceINR * i.quantity, 0),
 
       totalEUR: () =>
-        get().items.reduce(
-          (sum, i) => sum + i.product.priceEUR * i.quantity,
-          0
-        ),
+        get().items.reduce((sum, i) => sum + i.product.priceEUR * i.quantity, 0),
 
       itemCount: () =>
         get().items.reduce((sum, i) => sum + i.quantity, 0),
