@@ -1,30 +1,33 @@
-export type ProductCategory = "saree" | "lehenga" | "other";
+export type ProductCategory = "saree" | "lehenga";
 
 export type Product = {
   id: string;
   title: string;
   slug: string;
-  category: ProductCategory | string;
+  category: ProductCategory;
 
-  image_url: string;
-  gallery_urls?: string[] | null;
+  fabric: string;
+  occasion: string[];
 
-  description?: string | null;
+  price_inr: number;
+  price_eur: number;
+
+  images: string[];
+  reel_url?: string | null;
+
+  description: string;
   short_desc?: string | null;
 
-  color?: string | null;
-  fabric?: string | null;
-  work_type?: string | null;
-  occasion?: string | null;
+  colors: string[];
+  stock: number;
 
-  price_inr?: number | null;
-  price_eur?: number | null;
+  featured: boolean;
+  new_arrival: boolean;
+  published: boolean;
 
-  stock?: number | null;
-
-  featured?: boolean | null;
-  published?: boolean | null;
-  new_arrival?: boolean | null;
+  tags: string[];
+  care?: string | null;
+  weight?: string | null;
 
   created_at?: string | null;
   updated_at?: string | null;
