@@ -16,7 +16,8 @@ import {
   Loader2,
   LogOut,
 } from "lucide-react";
-import { Product, slugify, formatINR, formatEUR } from "@/lib/supabase";
+import type { Product } from "@/lib/product-types";
+import { slugify, formatINR, formatEUR } from "@/lib/product-utils";
 import Image from "next/image";
 
 const ADMIN_PW = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "admin123";
@@ -181,7 +182,7 @@ export default function AdminPage() {
 
   const handleSave = async () => {
     if (!form.title || !form.description || form.price_inr < 1) {
-      showToast("Name, description and price are required");
+      showToast("Title, description and price are required");
       return;
     }
 
@@ -941,14 +942,14 @@ export default function AdminPage() {
                   >
                     PRODUCT NAME *
                   </label>
-                  <input
-                    value={form.title}
-                    onChange={(e) => {
-                      set("name", e.target.value);
-                      if (!editing) set("slug", slugify(e.target.value));
-                    }}
-                    placeholder="e.g. Katan Silk Banarasi Saree with Zari Border"
-                  />
+                 <input
+  value={form.title}
+  onChange={(e) => {
+    set("title", e.target.value);
+    if (!editing) set("slug", slugify(e.target.value));
+  }}
+  placeholder="e.g. Katan Silk Banarasi Saree with Zari Border"
+/>
                 </div>
 
                 <div style={{ gridColumn: "1/-1" }}>
