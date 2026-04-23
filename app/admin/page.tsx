@@ -49,7 +49,7 @@ const FABRICS = [
 ];
 
 const emptyForm = {
-  name: "",
+  title: "",
   slug: "",
   category: "saree" as "saree" | "lehenga",
   fabric: "Katan Silk",
@@ -124,7 +124,7 @@ export default function AdminPage() {
   const openEdit = (p: Product) => {
     setEditing(p);
     setForm({
-      name: p.name,
+      title: p.title,
       slug: p.slug,
       category: p.category,
       fabric: p.fabric,
@@ -180,7 +180,7 @@ export default function AdminPage() {
   };
 
   const handleSave = async () => {
-    if (!form.name || !form.description || form.price_inr < 1) {
+    if (!form.title || !form.description || form.price_inr < 1) {
       showToast("Name, description and price are required");
       return;
     }
@@ -189,7 +189,7 @@ export default function AdminPage() {
 
     const payload = {
       ...form,
-      slug: form.slug || slugify(form.name),
+      slug: form.slug || slugify(form.title),
       colors: form.colors
         .split(",")
         .map((s) => s.trim())
@@ -536,7 +536,7 @@ export default function AdminPage() {
               <strong>Low stock:</strong>{" "}
               {products
                 .filter((p) => p.stock <= 2)
-                .map((p) => `${p.name} (${p.stock} left)`)
+                .map((p) => `${p.title} (${p.stock} left)`)
                 .join(" · ")}
             </p>
           </div>
@@ -641,7 +641,7 @@ export default function AdminPage() {
                           >
                             <Image
                               src={p.images[0]}
-                              alt={p.name}
+                              alt={p.title}
                               fill
                               style={{ objectFit: "cover" }}
                             />
@@ -656,7 +656,7 @@ export default function AdminPage() {
                               fontSize: "1rem",
                             }}
                           >
-                            {p.name}
+                            {p.title}
                           </p>
                           <p style={{ color: "#9a6e0a", fontSize: "0.7rem" }}>
                             {p.fabric}
@@ -942,7 +942,7 @@ export default function AdminPage() {
                     PRODUCT NAME *
                   </label>
                   <input
-                    value={form.name}
+                    value={form.title}
                     onChange={(e) => {
                       set("name", e.target.value);
                       if (!editing) set("slug", slugify(e.target.value));
